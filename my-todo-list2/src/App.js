@@ -15,21 +15,23 @@ onInputChange = e => {
 }
 
 onClick = () => {
-  let todoCopy = this.state.todos.slice();
+  let todoCopy = this.state.dodos.slice();
   todoCopy.push(this.state.currentTodo);
   this.setState({todos: todoCopy, currentTodo: ""});
 }
 
+
+
  render() {
    let bulletedTodos = this.state.todos.map((e, i)=> {
      return (
-       <li key={i}>{e}<button>X</button></li>
+       <li key={i}>{e}</li>
      )
    })
    return (
      <div>
      <input placeholder="Enter todo" value = {this.state.currentTodo} onChange = {this.onInputChange}/>
-     <button onClick={this.onClick}>Add</button>
+     <button>Add</button>
      <br />
      {this.state.todos.lenth === 0 ? "No todos yet!" : "You still have some todos"}
      </div>
