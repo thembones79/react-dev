@@ -3,19 +3,43 @@ import logo from './logo.svg';
 import './App.css';
 
 class App extends Component {
-  render() {
-    return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React, biaaaatch</h1>
-        </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
-      </div>
-    );
-  }
+ constructor() {
+   super();
+   this.state = {
+     todos: [],
+     currentTodo: ""
+   };
+ }
+onInputChange = e => {
+  this.setState({currentTodo: e.target.value});
+}
+
+onClick = () => {
+  let todoCopy = this.state.dodos.slice();
+  todoCopy.push(this.state.currentTodo);
+  this.setState({todos: todoCopy, currentTodo: ""});
+}
+
+
+
+ render() {
+   let bulletedTodos = this.state.todos.map((e, i)=> {
+     return (
+       <li key={i}>{e}</li>
+     )
+   })
+   return (
+     <div>
+     <input placeholder="Enter todo" value = {this.state.currentTodo} onChange = {this.onInputChange}/>
+     <button>Add</button>
+     <br />
+     {this.state.todos.lenth === 0 ? "No todos yet!" : "You still have some todos"}
+     </div>
+
+
+   );
+
+ }
 }
 
 export default App;
