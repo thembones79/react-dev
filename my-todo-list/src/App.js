@@ -35,10 +35,10 @@ deleteTodo = i => {
    })
    return (
      <div>
-     <input placeholder="Enter todo" value = {this.state.currentTodo} onChange = {this.onInputChange}/>
-     <button onClick={this.onClick}>Add</button>
+     <input placeholder="Enter toodo" value = {this.state.currentTodo} onChange = {this.onInputChange}/>
+     <button onClick={this.onClick}>Addd</button>
      <br />
-     {this.state.todos.length === 0 ? "No todos yet!" : <ul>{bulletedTodos}</ul>}
+     {this.state.todos.length === 0 ? "Nope todos yet!" : <ul>{bulletedTodos}</ul>}
      </div>
 
 

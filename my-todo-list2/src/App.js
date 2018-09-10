@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
+import SingleTodos from './Singletodos';
 
 class App extends Component {
  constructor() {
@@ -15,25 +16,29 @@ onInputChange = e => {
 }
 
 onClick = () => {
-  let todoCopy = this.state.dodos.slice();
+  let todoCopy = this.state.todos.slice();
   todoCopy.push(this.state.currentTodo);
   this.setState({todos: todoCopy, currentTodo: ""});
 }
 
-
+deleteTodo = i => {
+  let todoCopy = this.state.todos.slice();
+  todoCopy.splice(i, 1);
+  this.setState({todos: todoCopy});
+}
 
  render() {
    let bulletedTodos = this.state.todos.map((e, i)=> {
      return (
-       <li key={i}>{e}</li>
+       <SingleTodos todo={e} delete={()=>this.deleteTodo(i)}/>
      )
    })
    return (
      <div>
-     <input placeholder="Enter todo" value = {this.state.currentTodo} onChange = {this.onInputChange}/>
-     <button>Add</button>
+     <input placeholder="Enter toodo" value = {this.state.currentTodo} onChange = {this.onInputChange}/>
+     <button onClick={this.onClick}>Addd</button>
      <br />
-     {this.state.todos.lenth === 0 ? "No todos yet!" : "You still have some todos"}
+     {this.state.todos.length === 0 ? "Nope todos yet!" : <ul>{bulletedTodos}</ul>}
      </div>
 
 
