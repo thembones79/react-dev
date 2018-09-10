@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+//import logo from './logo.svg';
+//import './App.css';
 import SingleTodos from './Singletodos';
 
 class App extends Component {
@@ -29,8 +29,9 @@ deleteTodo = i => {
 
  render() {
    let bulletedTodos = this.state.todos.map((e, i)=> {
-     return (
-       <SingleTodos todo={e} delete={()=>this.deleteTodo(i)}/>
+     return ( 
+       <p>test</p>
+     //  <SingleTodos todo={e} delete={()=>this.deleteTodo(i)}/> "test"
      )
    })
    return (
